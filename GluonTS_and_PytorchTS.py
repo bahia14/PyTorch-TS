@@ -12,6 +12,7 @@ https://github.com/mmaithani/data-science/blob/main/PyTorch_ts_time_series_forec
 
 #pip install pytorchts
 
+import pytorchts as pts
 import matplotlib.pyplot as plt
 import pandas as pd
 import torch
