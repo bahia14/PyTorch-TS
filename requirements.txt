@@ -1,4 +1,2 @@
-numpy==1.23.1
-pandas==1.1.5
-streamlit==1.12.0
 pytorchts==0.6.0
+streamlit==1.12.0
