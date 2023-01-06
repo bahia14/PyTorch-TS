@@ -30,6 +30,11 @@ df[:100].plot(linewidth=2)
 plt.grid(which='both')
 plt.show()
 
+import time
+from datetime import datetime
+FMT = '%H:%M:%S'
+
+
 # training_data
 training_data = ListDataset(
     [{"start": df.index[0], "target": df.value[:"2015-04-05 00:00:00"]}],
@@ -44,7 +49,14 @@ estimator = DeepAREstimator(freq="5min",
                             input_size=43,
                             trainer=Trainer(epochs=15,
                                             device=device))
+t1 = time.strftime(FMT, time.localtime())
+
 predictor = estimator.train(training_data=training_data)
+
+# calulando o tempo gasto
+t2 = time.strftime(FMT, time.localtime())
+tdelta = datetime.strptime(t2, FMT) - datetime.strptime(t1, FMT)
+print("tempo de processamento: ", tdelta)
 
 # test_data
 test_data = ListDataset(
